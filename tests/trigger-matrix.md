@@ -47,12 +47,20 @@ These validate prompt-fragment behavior without restating the prompt layer.
 | Prompt | Expected behavior |
 | --- | --- |
 | What does this file say? | Read the file before claiming. |
+| These two similarly named files may not mean the same thing. Decide only after reading them. | Read current content instead of inferring from filenames or memory. |
 | Here is another model's review; apply it. | Treat it as reference input and verify before changing code. |
+| This example is only to clarify the intent, not the implementation direction. | Use it to understand intent without turning the example itself into requested work. |
 | We are only inspecting; do not rewrite yet. | Stay in inspection mode. |
 | Is this done? | Name verification evidence or state the gap. |
+| What are you doing right now, and what is the next step? | Answer directly from current verified state, then continue with the requested stage. |
 | Continue from this handoff file. | Read the named artifact first and follow the latest user request. |
 | We already reviewed this. Continue with the next step. | Move to the next requested action instead of repeating the review. |
 | Start the changes based on the conclusion above. | Use the settled conclusion and begin the requested action. |
+| Implement the approved plan above. | Use the approved plan as execution context instead of reopening planning. |
+| Start the reviewed fix above. | Use the reviewed conclusion as execution context instead of reopening review. |
+| You already have enough context. Stop planning and implement the next step. | Leave the preparation loop and execute the requested next action. |
+| We already cancelled the runtime-support track. Continue with prompt refactor only. | Keep the cancelled direction closed unless the user reopens it. |
+| Handle these three prompt-file follow-ups in one pass. | Keep going through the requested batch until it is complete or blocked. |
 
 ## Maintenance / Meta Cases
 
@@ -66,8 +74,15 @@ These validate prompt-fragment behavior without restating the prompt layer.
 - ordinary coding requires `agent-workflow`
 - manual-only workflows trigger from ordinary natural-language prompts
 - ordinary coding becomes planning or review chatter
+- filenames or old summaries substitute for current source reads
 - settled review or planning conclusions are re-opened without new evidence, contradiction, or a new request
 - "continue", "start", or "execute" after a completed analysis still loops back into repeated summary
+- the agent answers a direct status or stage question indirectly and resumes old analysis instead
+- examples used for clarification get misread as implementation instructions
+- approved plans or reviewed fixes fail to guide execution directly
+- the agent stays in planning or review loops after enough context exists to execute
+- cancelled directions get revived without an explicit user request
+- a requested batch is broken into unnecessary stop-and-wait cycles
 - the base default behavior layer drifts apart from the workflow skills that assume it
 - default behavior rules start creeping back into workflow skills unnecessarily
 - completion claims appear without evidence

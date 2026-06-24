@@ -18,6 +18,11 @@ These prompts should stay in the base default behavior layer, not load a heavier
 | Implement this feature. | base default behavior first, then task-specific escalation only if the request clearly requires it | avoid default routing into heavy workflows |
 | Implement the approved steps from this existing plan file. | base default behavior | existing durable plan should guide execution without reopening planning |
 | Continue this paused task using the current issue or work-item draft. | base default behavior | reuse tracked state instead of reopening workflow-layer artifact creation |
+| Start implementing the approved plan above. | base default behavior | settled planning should feed execution directly |
+| Start the reviewed fix above. | base default behavior | settled review should feed execution directly until new evidence changes it |
+| Answer what you are doing, then continue the current task. | base default behavior | direct status answer plus continued execution stays in the default layer |
+| We already cancelled that older direction. Continue with the current task only. | base default behavior | settled cancellations should hold unless the user reopens them |
+| Handle these remaining prompt-file fixes in one pass. | base default behavior | batched continuation should stay in ordinary execution flow |
 
 ## Core Workflow Skills
 
