@@ -1,6 +1,6 @@
 ---
 name: reliability-check
-description: Use when the user explicitly reports hallucination, guessing, shallow answers, wrong direction, stage drift, stale context, unsupported confidence, source-vs-memory confusion, example-vs-task confusion, or asks the agent to stop and reassess assumptions, evidence, the active stage, or whether it read the right files.
+description: Use when the user explicitly asks the agent to reassess evidence, source use, the active stage, stale context, unsupported confidence, hallucination, guessing, source-vs-memory confusion, example-vs-task confusion, or whether it read the right files.
 ---
 
 # Reliability Check

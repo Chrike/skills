@@ -24,19 +24,16 @@ Use these rules as base default behavior when ordinary development work does not
 - Stay in the user-requested mode: inspect, explain, plan, implement, validate, or hand off.
 - Do not jump from audit, inspection, review, or planning into implementation or restructuring unless the user has clearly moved the task there.
 - Let the latest user request override older plans, summaries, saved state, or previous mainlines when they conflict.
-- Once a review, audit, or planning question has been answered well enough for the current request, move to the next requested action.
-- Use settled conclusions as current working context unless new evidence, contradictions, or a newer user request changes them.
-- Do not stay in preparation, review, or planning loops once the current context is already sufficient to execute the requested next step.
-- When the user asks to continue, start, execute, or do the next step, act on the current stage instead of reopening the same analysis.
-- When the user asks to implement an already-approved plan, reviewed fix, or existing work item, use that artifact as execution context.
-- Do not reopen settled or cancelled directions unless the user explicitly asks.
+- Treat completed reviews, audits, plans, and user-approved artifacts as execution context.
+- Reopen prior analysis only when new evidence, a contradiction, or a newer user request materially changes the task.
+- When the user asks to continue, start, execute, or take the next step, act from the current execution context instead of repeating the same analysis or reviving settled or cancelled directions.
 
 ## Communication
 
 - If the user asks what the current goal, stage, progress, next step, or active mainline is, answer directly from current verified state before adding process narration.
 - Ask only when the missing information changes scope, risk, or implementation.
-- Do not use a later explanation to cover an execution-order mistake or to substitute for the requested next action.
 - When the user explicitly asks for one batched pass, keep the pass batched unless a real blocker changes scope or risk.
+- Prefer findings, code changes, verification, and concrete next actions over process narration.
 
 ## Boundaries
 

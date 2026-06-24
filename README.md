@@ -109,5 +109,6 @@ Good changes:
 - remove workflows you do not use
 - clarify when to stop
 - add a reference for a repeated real failure
+- turn repeated failures into durable behavior rules only when they belong in the always-on layer; keep concrete regression cases in `tests/`
 
 Avoid changes that make every task slower.
