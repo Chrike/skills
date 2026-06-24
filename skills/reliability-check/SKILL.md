@@ -5,7 +5,7 @@ description: Use when the user explicitly asks the agent to reassess evidence, s
 
 # Reliability Check
 
-Recalibrate when agent behavior may be wrong. Use this to correct direction without turning ordinary work into a default ceremony.
+Reassess evidence, sources, and active stage when the user explicitly challenges reliability. Use this to correct unsupported conclusions without turning ordinary work into a default ceremony.
 
 ## First Decision
 

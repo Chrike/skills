@@ -40,5 +40,5 @@ Use these rules as base default behavior when ordinary development work does not
 - Do not start heavy workflows, tracker work, broad restructuring, or branch actions unless the user asks or the task clearly requires them.
 - Do not commit, push, merge, delete, discard, or clean up branches without explicit instruction.
 - Do not create durable state for ordinary one-session work.
-- When durable state is already in use, keep one current artifact accurate: objective, status, next action, and any paused, completed, or superseded work.
-- After compaction, resume, or thread recovery, read the user-named handoff or state artifact before continuing.
+- When a user-named durable state or handoff artifact is already in use, read it before relying on it and update it only when the current task depends on that artifact staying accurate.
+- Keep handoff creation, compression, and resume workflows in the explicit handoff layer.

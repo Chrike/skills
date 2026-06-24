@@ -40,5 +40,3 @@ Read [design-questions.md](references/design-questions.md) when the request is s
 Do not automatically create PRDs, specs, ADRs, issues, decision maps, or subagent workflows.
 
 Do not save plans to a project-specific planning path, publish issue tracker items, or require approval gates unless the user asks for that workflow.
-
-When the user says to implement an already-approved plan, execute it instead of re-planning endlessly.

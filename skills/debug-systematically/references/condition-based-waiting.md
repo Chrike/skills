@@ -1,6 +1,6 @@
 # Condition-Based Waiting
 
-Use when tests or scripts rely on guessed sleeps, arbitrary timeouts, or timing windows that pass sometimes and fail under load.
+Use when diagnosis, tests, or scripts rely on guessed sleeps, arbitrary timeouts, or timing windows that pass sometimes and fail under load.
 
 ## Rule
 
@@ -16,33 +16,12 @@ Wait for the condition that proves progress, not for a guessed duration.
 | File/process | file exists, process exits, port responds |
 | UI | element is visible/enabled or network call completes |
 
-## Minimal Helper Shape
+## Debugging Guidance
 
-```ts
-async function waitFor<T>(
-  check: () => T | null | undefined | Promise<T | null | undefined>,
-  description: string,
-  timeoutMs = 5000
-): Promise<T> {
-  const start = Date.now();
-  let lastError: unknown;
-  while (Date.now() - start < timeoutMs) {
-    try {
-      const value = await check();
-      if (value !== null && value !== undefined) return value;
-    } catch (error) {
-      lastError = error;
-    }
-    await new Promise(resolve => setTimeout(resolve, 25));
-  }
-  throw new Error(
-    `Timed out waiting for ${description}` +
-      (lastError ? `; last error: ${String(lastError)}` : "")
-  );
-}
-```
-
-Use the repo's existing test utilities when they exist.
+- Prefer existing project or framework wait utilities.
+- If no helper exists, use a small polling loop with a deadline, a clear condition description, and a useful timeout error.
+- Log the last observed state or last error when it helps diagnose why the condition never became true.
+- Remove temporary polling or diagnostic code unless it becomes an intentional test utility.
 
 ## Legitimate Sleeps
 
