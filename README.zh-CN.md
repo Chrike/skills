@@ -59,12 +59,15 @@ Languages: [English](README.md) | [简体中文](README.zh-CN.md)
 将 `prompts/` 作为 `AGENTS.md`、`CLAUDE.md` 等常驻指令文件的源材料。
 
 将 `tests/` 保留为维护与验证材料，而不是运行时技能。
+不要将 `tests/` 复制到 `.claude/`、`.agents/` 或其他运行时安装目录中。
 
 ## 仓库分层
 
 - `skills/` 存放可安装的运行时技能。
+- `skills.sh.json` 只控制 skills.sh 页面分组展示，不影响运行时行为或 skill 路由。
 - `prompts/` 存放常驻默认行为的源片段。
 - `tests/` 存放用于维护本套件的路由与边界检查。
+- 手动工作流技能包含 `agents/openai.yaml`，用于关闭 Codex 的隐式调用。
 - 如果摘要说明与技能正文或提示词片段漂移，应更新摘要，而不是在 README 中再写一套规范。
 
 ## 推荐起步

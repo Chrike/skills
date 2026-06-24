@@ -59,12 +59,15 @@ Common target locations:
 Use `prompts/` as source material for your always-on instruction file such as `AGENTS.md` or `CLAUDE.md`.
 
 Keep `tests/` as maintenance and validation material rather than runtime skills.
+Do not copy `tests/` into `.claude/`, `.agents/`, or other runtime install targets.
 
 ## Repository Layout
 
 - `skills/` contains installable runtime skills.
+- `skills.sh.json` controls skills.sh page grouping only; it does not affect runtime behavior or skill routing.
 - `prompts/` contains source fragments for always-on default behavior.
 - `tests/` contains routing and boundary checks used to maintain the suite.
+- Manual workflow skills include `agents/openai.yaml` to disable implicit Codex invocation.
 - If summary text drifts from the prompt fragments or skill bodies, update the summaries instead of creating a second spec in the README.
 
 ## Recommended Start
